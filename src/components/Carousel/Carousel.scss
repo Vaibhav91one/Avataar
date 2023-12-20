@@ -1,0 +1,184 @@
+.Wrapper {
+    padding: 0 10px;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 4rem;
+    h1 {
+        font-size: 40px;
+    }
+    span {
+        font-size: 15px;
+        margin-top: -30px;
+    }
+}
+
+.Carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5rem 0px;
+
+    .slider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        overflow-y: hidden;
+        transition: 0.5s;
+        perspective: 1000px;
+        transition: 0.5s ease-in-out;
+        .LeftCard{
+            transform:rotateY(10deg);
+            transform-origin: left center;
+        }
+        
+        .LeftCardAnimation, .RightCardAnimation{
+            animation: slide 1s ease-in-out;
+            transition: ease-in-out 0.2s;
+        }
+
+        @keyframes slide {
+            0%{
+                transform: translateX(0px);
+                // transform:rotateY(5deg);
+                opacity: 0;
+            }
+            50%{
+                transform: translateX(-10px);
+                // transform:rotateY(10deg);
+                opacity: 0.5;
+            }
+        }
+
+        .MainCardAnimation{
+            animation: slideLeft 1s ease-in-out;
+            transition: ease-in-out 0.2s;
+        }
+
+        @keyframes slideLeft {
+            0%{
+                transform: translateX(0px);
+                transform:rotateY(5deg);
+                opacity: 0;
+
+            }
+            50%{
+                transform: translateX(-10px);
+                transform:rotateY(10deg);
+                opacity: 0.5;
+            }
+        }
+
+
+        .RightCard{
+            transform:rotateY(-10deg);
+            transform-origin: right center;
+            
+        }
+
+        .MainCard{
+            transform-origin: center center;
+        }
+
+        .LeftCard,
+        .RightCard,
+        .MainCard {
+            flex: 1;
+            transition: 0.5s;
+            margin: 20px;
+        }
+
+
+        .MainCard {
+            // border: 1px solid black;
+            // border-radius: 40px;
+            z-index: 1;
+            scale: 1.5;
+        }
+    }
+}
+
+.CardContainer {
+    max-width: 600px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s;
+    border-radius: 20px;
+    box-shadow: -2px 4px 19px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -2px 4px 19px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 4px 19px 0px rgba(0,0,0,0.75);
+    .CardImage {
+        position: relative;
+        object-fit: cover;
+        max-width: 700px;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        transition: 0.5s ease-in-out;
+    }
+    .CardTitle {
+        opacity: 0;
+        text-align: center;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.328);
+        position: absolute;
+        bottom: 50px;
+        color: white;
+        padding: 20px 0;
+        transform: translateY(30px);
+        // border-bottom-left-radius: 20px;
+        // border-bottom-right-radius: 20px;
+        transition: 0.5s ease-in-out;
+        overflow: hidden;
+    }
+    &:hover {
+        .CardTitle {
+            transform: translateY(14px);
+            opacity: 1;
+        }
+    }
+}
+
+.CardActions {
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .Leftbtn,
+    .Rightbtn {
+        padding: 10px;
+        margin: 1rem 5rem;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+        color: black;
+        background-color: white;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+            color: black;
+            background-color: rgba(12, 12, 12, 0.159);
+        }
+        &:active {
+            scale: 1.1;
+        }
+    }
+}
+
+.slider {
+    display: flex;
+    perspective: 1000px;
+}
+

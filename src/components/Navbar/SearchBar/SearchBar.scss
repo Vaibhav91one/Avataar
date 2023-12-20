@@ -1,0 +1,35 @@
+.SearchContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    height: 3rem;
+    margin-right: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.52);
+
+    .SearchBox {
+        background-color: rgba(0, 0, 0, 0);
+        outline: none;
+        border: none;
+        color: white;
+    }
+    .SearchIcon {
+        width: 2rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .SearchContainer {
+        width: auto;
+        border-bottom: none;
+        .SearchBox {
+            display: none;
+        }
+    }
+}
+
+::placeholder {
+    color: white;
+    font-weight: 500;
+    opacity: 80%;
+}
