@@ -8,48 +8,6 @@ const menuItems = ['Home', 'Electronics', 'Books', 'Music', 'Movies', 'Clothing'
 const dropdownItems = ['Games', 'Clothing', 'Movies', 'Music', 'Books', 'Electronics', 'Home', 'TV series'];
 
 export const Navbar = () => {
-  // const [menuItems, setMenuItems] = useState(initialMenuItems);
-  // const [dropdownItems, setDropdownItems] = useState(initialDropdownItems);
-  // const breakpoints = [1000,1450]; 
-
-  // const handleResize = () => {
-  //   const width = window.innerWidth;
-
-  //   if(width <= breakpoints[0]){
-  //     if(menuItems.length > 1){
-  //       for(var i = 0; i < 2; i++){
-  //         const firstItem = menuItems.pop();
-  //         dropdownItems.unshift(firstItem)
-  //       }
-  //     }
-  //   }
-  //   else if(width <= breakpoints[1]){
-  //     if(menuItems.length > 1){
-  //       for(var i = 0; i < 2; i++){
-  //         const firstItem = menuItems.pop()
-  //         dropdownItems.unshift(firstItem)
-  //       }
-  //     }
-
-  //   }
-  //   else if(breakpoints[0] < width < breakpoints[0] || width > breakpoints[1] ){
-  //     for(var i = 0; i < 2; i++){
-  //       const firstItem = dropdownItems.pop()
-  //       menuItems.push(firstItem)
-  //     }
-  //   }
-
-  //   setDropdownItems([...dropdownItems]);
-  //   setMenuItems([...menuItems]);
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener('resize', handleResize);
-  //   return () => {
-  //     window.removeEventListener('resize', handleResize);
-  //   }; }, [menuItems, dropdownItems]);
-
-
   const DropdownMenu = () => {
     const DropdownItem = (props) => {
       return (
@@ -81,7 +39,7 @@ export const Navbar = () => {
         <ul className='desktop-menu'>
           {menuItems.map((item, index) => (<NavItem name={item} />))}
           <NavItem name='More' icon={<FaAngleDown />}>
-            <DropdownMenu />
+            <DropdownMenu  />
           </NavItem>
         </ul>
         <SearchBar className='Search' />

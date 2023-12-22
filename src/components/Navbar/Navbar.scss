@@ -48,13 +48,16 @@ ul{
     align-items: center;
     flex-direction: column;
     position: absolute;
+    width: 30%;
     top: 5rem;
-    transform: translateX(-35%);
+    transform: translateX(-30%);
     background-color: rgba(0, 0, 0, 0.768);
     padding: 1rem;
     overflow: hidden;
     border-radius: 20px;
     z-index: 1;
+    backdrop-filter: blur(10px);
+
   }
 
 .menu-item {
@@ -89,8 +92,23 @@ ul{
     display: block;
 }
   
+.dropdowwn-menu{
+  animation: Down 0.5s ease-in-out;
+}
+
+@keyframes Down {
+  0%{
+    transform: translateY(-10px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+
 
 @media screen and (max-width: 1450px) {
+   
+
     .desktop-menu li:nth-child(6),
     .desktop-menu li:nth-child(7) {
       display: none;
