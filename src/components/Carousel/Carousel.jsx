@@ -54,7 +54,7 @@ export const Carousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const [showAnimation, setShowAnimation] = useState(false); 
-  const defaultClasses = ['LeftCard', 'MainCard', 'RightCard'];
+  const defaultClasses = ['LeftCard', 'MainCard', 'RightCard', 'LeftMostCard', 'RightMostCard'];
   const animationClasses = [showAnimation ? 'LeftCardAnimation' : '', showAnimation ? 'MainCardAnimation' : '', showAnimation ? 'RightCardAnimation' : '', showAnimation ? 'LeftMostCardAnimation' : '',  showAnimation ? 'RightMostCardAnimation' : ''];
 
   const NextSlide = () => {
@@ -75,16 +75,6 @@ export const Carousel = () => {
     }, 1000);
   };
 
-  const ActiveImage = () => {
-    console.log("Working")
-    console.log(this)
-    console.log(this.card_no)
-    setActiveIndex(this.card_no);
-    setShowAnimation(true)
-    setTimeout(() => {
-      setShowAnimation(false)
-    }, 1000);
-  };
 
   return (
     <>
@@ -97,19 +87,19 @@ export const Carousel = () => {
         <div className='Carousel'>
           <div className="slider">
           <div className={`${defaultClasses[0]}  ${animationClasses[3]}`}>
-              <Card image={CardItems[(activeIndex - 2 + CardItems.length) % CardItems.length].image} title={CardItems[(activeIndex - 1 + CardItems.length) % CardItems.length].title} onClick={ActiveImage}/>
+              <Card image={CardItems[(activeIndex - 2 + CardItems.length) % CardItems.length].image} title={CardItems[(activeIndex - 1 + CardItems.length) % CardItems.length].title} />
             </div>
             <div className={`${defaultClasses[0]}  ${animationClasses[0]}`}>
-              <Card image={CardItems[(activeIndex - 1 + CardItems.length) % CardItems.length].image} title={CardItems[(activeIndex - 1 + CardItems.length) % CardItems.length].title} onClick={ActiveImage} />
+              <Card image={CardItems[(activeIndex - 1 + CardItems.length) % CardItems.length].image} title={CardItems[(activeIndex - 1 + CardItems.length) % CardItems.length].title} />
             </div>
             <div className={`${defaultClasses[1]} ${animationClasses[1]} `}>
               <Card image={CardItems[activeIndex].image} title={CardItems[activeIndex].title} CardMain={true} />
             </div>
             <div className={`${defaultClasses[2]} ${animationClasses[2]} `}>
-              <Card image={CardItems[(activeIndex + 1) % CardItems.length].image} title={CardItems[(activeIndex + 1) % CardItems.length].title} onClick={ActiveImage}/>
+              <Card image={CardItems[(activeIndex + 1) % CardItems.length].image} title={CardItems[(activeIndex + 1) % CardItems.length].title} />
             </div>
             <div className={`${defaultClasses[2]} ${animationClasses[4]} `}>
-              <Card image={CardItems[(activeIndex + 2) % CardItems.length].image} title={CardItems[(activeIndex + 1) % CardItems.length].title} onClick={ActiveImage}/>
+              <Card image={CardItems[(activeIndex + 2) % CardItems.length].image} title={CardItems[(activeIndex + 1) % CardItems.length].title} />
             </div>
           </div>
           <div className='CardActions'>
