@@ -85,6 +85,9 @@ export const Carousel = () => {
 
         <div className='Carousel'>
           <div className="slider">
+          <div className={`${defaultClasses[0]}  ${animationClasses[0]}`}>
+              <Card image={CardItems[(activeIndex - 2 + CardItems.length) % CardItems.length].image} title={CardItems[(activeIndex - 1 + CardItems.length) % CardItems.length].title} />
+            </div>
             <div className={`${defaultClasses[0]}  ${animationClasses[0]}`}>
               <Card image={CardItems[(activeIndex - 1 + CardItems.length) % CardItems.length].image} title={CardItems[(activeIndex - 1 + CardItems.length) % CardItems.length].title} />
             </div>
@@ -93,6 +96,9 @@ export const Carousel = () => {
             </div>
             <div className={`${defaultClasses[2]} ${animationClasses[2]} `}>
               <Card image={CardItems[(activeIndex + 1) % CardItems.length].image} title={CardItems[(activeIndex + 1) % CardItems.length].title} />
+            </div>
+            <div className={`${defaultClasses[2]} ${animationClasses[2]} `}>
+              <Card image={CardItems[(activeIndex + 2) % CardItems.length].image} title={CardItems[(activeIndex + 1) % CardItems.length].title} />
             </div>
           </div>
           <div className='CardActions'>
