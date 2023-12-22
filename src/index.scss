@@ -8,6 +8,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+::-webkit-scrollbar {
+  display: none;
+  scroll-behavior: smooth;
+}
 
 body {
   padding: 0;
