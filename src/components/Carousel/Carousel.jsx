@@ -42,7 +42,7 @@ const Card = (props) => {
   return (
     <>
       <div className='CardContainer'>
-        <img className='CardImage' src={props.image} alt="Error" />
+        <img className='CardImage' src={props.image} loading='lazy' alt="Error" width="1rem" height="1rem"/>
         {props.CardMain ? <p className='CardTitle'>{props.title}</p> : null}
 
       </div>
@@ -86,7 +86,7 @@ export const Carousel = () => {
 
         <div className='Carousel'>
           <div className="slider">
-          <div className={`${defaultClasses[0]}  ${animationClasses[3]}`}>
+          <div className={`${defaultClasses[3]}  ${animationClasses[3]}`}>
               <Card image={CardItems[(activeIndex - 2 + CardItems.length) % CardItems.length].image} title={CardItems[(activeIndex - 1 + CardItems.length) % CardItems.length].title} />
             </div>
             <div className={`${defaultClasses[0]}  ${animationClasses[0]}`}>
@@ -98,7 +98,7 @@ export const Carousel = () => {
             <div className={`${defaultClasses[2]} ${animationClasses[2]} `}>
               <Card image={CardItems[(activeIndex + 1) % CardItems.length].image} title={CardItems[(activeIndex + 1) % CardItems.length].title} />
             </div>
-            <div className={`${defaultClasses[2]} ${animationClasses[4]} `}>
+            <div className={`${defaultClasses[4]} ${animationClasses[4]} `}>
               <Card image={CardItems[(activeIndex + 2) % CardItems.length].image} title={CardItems[(activeIndex + 1) % CardItems.length].title} />
             </div>
           </div>
