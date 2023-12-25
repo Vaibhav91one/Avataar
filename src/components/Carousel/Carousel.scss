@@ -34,8 +34,7 @@
         overflow-x: hidden;
         scroll-behavior: smooth;
         overflow-y: hidden;
-        perspective: 1000px;
-
+        perspective: 1000px;        
         .LeftCard {
             scale: 0.8;
             transform-origin: left center;
@@ -43,7 +42,6 @@
 
         .LeftMostCard {
             scale: 0.6;
-            // transform: rotateY(20deg);
         }
 
         .MainCardAnimation {
@@ -58,7 +56,6 @@
 
         .RightMostCard {
             scale: 0.6;
-            // transform: rotateY(-20deg);
         }
 
         .MainCard {

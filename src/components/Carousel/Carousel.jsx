@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 import './Carousel.scss'
@@ -53,29 +53,39 @@ const Card = (props) => {
 
 export const Carousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-
   const [showAnimation, setShowAnimation] = useState(false);
+
+  const buttonNextRef = useRef(null);
+  const buttonPrevRef = useRef(null);
   const defaultClasses = ['LeftCard', 'MainCard', 'RightCard', 'LeftMostCard', 'RightMostCard'];
   const animationClasses = [showAnimation ? 'LeftCardAnimation' : '', showAnimation ? 'MainCardAnimation' : '', showAnimation ? 'RightCardAnimation' : '', showAnimation ? 'LeftMostCardAnimation' : '', showAnimation ? 'RightMostCardAnimation' : ''];
 
   const NextSlide = () => {
+    buttonNextRef.current.disabled = true
+    buttonPrevRef.current.disabled = true
     let nextIndex = (activeIndex + 1) % CardItems.length;
     setActiveIndex(nextIndex < 0 ? CardItems.length - 1 : nextIndex);
     setShowAnimation(true)
     setTimeout(() => {
       setShowAnimation(false)
+      buttonNextRef.current.disabled = false
+      buttonPrevRef.current.disabled = false
     }, 1000);
+
   };
 
   const PrevSlide = () => {
+    buttonNextRef.current.disabled = true
+    buttonPrevRef.current.disabled = true
     let prevIndex = (activeIndex - 1 + CardItems.length) % CardItems.length;
     setActiveIndex(prevIndex);
     setShowAnimation(true)
     setTimeout(() => {
       setShowAnimation(false)
+      buttonNextRef.current.disabled = false
+      buttonPrevRef.current.disabled = false
     }, 1000);
   };
-  
 
   return (
     <>
@@ -105,8 +115,8 @@ export const Carousel = () => {
             </div>
           </div>
           <div className='CardActions'>
-            <button className='Leftbtn' onClick={PrevSlide} > <FaChevronLeft /> </button>
-            <button className='Rightbtn' onClick={NextSlide} > <FaChevronRight /> </button>
+            <button className='Leftbtn' ref={buttonPrevRef} onClick={PrevSlide} > <FaChevronLeft /> </button>
+            <button className='Rightbtn' ref={buttonNextRef} onClick={NextSlide} > <FaChevronRight /> </button>
           </div>
         </div>
       </div>
