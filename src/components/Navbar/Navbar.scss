@@ -56,7 +56,6 @@ ul{
     overflow: hidden;
     border-radius: 20px;
     z-index: 1;
-    backdrop-filter: blur(10px);
 
   }
 
@@ -72,9 +71,6 @@ ul{
 
     .icon-button {
         margin-right: 0.5rem;
-        &:hover {
-            filter: none;
-        }
     }
 }
 
