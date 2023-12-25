@@ -50,18 +50,9 @@ const Card = (props) => {
   )
 }
 
+
 export const Carousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     setActiveIndex((activeIndex + 1) % CardItems.length);
-  //     setShowAnimation(true)
-  //     setTimeout(() => {
-  //       setShowAnimation(false)
-  //     }, 1000);
-  //   }, 10000);
-  // })
 
   const [showAnimation, setShowAnimation] = useState(false);
   const defaultClasses = ['LeftCard', 'MainCard', 'RightCard', 'LeftMostCard', 'RightMostCard'];
@@ -84,7 +75,7 @@ export const Carousel = () => {
       setShowAnimation(false)
     }, 1000);
   };
-
+  
 
   return (
     <>
@@ -93,6 +84,7 @@ export const Carousel = () => {
           <h1>Featured Products</h1>
           <span>Explore and discover a variety of products</span>
         </div>
+
 
         <div className='Carousel'>
           <div className="slider">
