@@ -38,36 +38,32 @@
         perspective: 1000px;
         transition: 0.5s ease-in-out;
 
-        .LeftCard{
+        .LeftCard {
             scale: 0.8;
             transform-origin: left center;
         }
 
-        .LeftMostCard{
+        .LeftMostCard {
             scale: 0.6;
-            transform:rotateY(20deg);
+            transform: rotateY(20deg);
         }
 
-        .MainCardAnimation{
+        .MainCardAnimation {
             animation: slideMain 0.5s ease-in-out;
             transition: ease-in-out 0.2s;
         }
 
-
-        .RightCard{
+        .RightCard {
             scale: 0.8;
             transform-origin: right center;
-            
         }
 
-        
-        .RightMostCard{
+        .RightMostCard {
             scale: 0.6;
-            transform:rotateY(-20deg);
-            
+            transform: rotateY(-20deg);
         }
 
-        .MainCard{
+        .MainCard {
             scale: 1;
             transform-origin: center center;
         }
@@ -79,91 +75,88 @@
         .RightMostCard {
             flex: 1;
             transition: 0.5s;
-            margin: 20px 0;
+            margin: 30px 0;
         }
-
 
         .MainCard {
             z-index: 1;
             transform: scaleX(1.1);
         }
-        
-        .LeftCardAnimation{
+
+        .LeftCardAnimation {
             animation: slideLeft 1s ease-in-out;
             transition: ease-in-out 0.2s;
         }
 
-        .RightCardAnimation{
+        .RightCardAnimation {
             animation: slideRight 1s ease-in-out;
             transition: ease-in-out 0.2s;
         }
 
-        .LeftMostCardAnimation{
+        .LeftMostCardAnimation {
             animation: slideRightMost 1s ease-in-out;
             transition: ease-in-out 0.2s;
         }
 
-        .RightMostCardAnimation{
+        .RightMostCardAnimation {
             animation: slideLeftMost 1s ease-in-out;
             transition: ease-in-out 0.2s;
         }
-        
+
         @keyframes slideLeftMost {
-            0%{
+            0% {
                 transform: translateX(0px);
                 opacity: 0.4;
             }
-            50%{
+            50% {
                 transform: translateX(-10px);
                 opacity: 0.6;
             }
         }
-        
+
         @keyframes slideRightMost {
-            0%{
+            0% {
                 transform: translateX(0px);
                 opacity: 0.4;
             }
-            50%{
+            50% {
                 transform: translateX(10px);
                 opacity: 0.6;
             }
         }
 
         @keyframes slideLeft {
-            0%{
+            0% {
                 transform: translateX(0px);
                 opacity: 0.5;
             }
-            50%{
+            50% {
                 transform: translateX(10px);
                 opacity: 1;
             }
         }
 
         @keyframes slideRight {
-            0%{
+            0% {
                 transform: translateX(0px);
                 opacity: 0.5;
             }
-            50%{
+            50% {
                 transform: translateX(-10px);
                 opacity: 1;
             }
         }
 
         @keyframes slideMain {
-            0%{
+            0% {
                 scale: 0.6;
                 opacity: 0.6;
-
             }
-            100%{
+            100% {
                 scale: 1;
                 opacity: 1;
             }
         }
-
     }
 }
 
@@ -174,11 +167,24 @@
     overflow: hidden;
     transition: 0.5s ease-in-out;
     border-radius: 20px;
-    box-shadow: -2px 4px 19px 0px rgba(0,0,0,0.75);
-    -webkit-box-shadow: -2px 4px 19px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: -2px 4px 19px 0px rgba(0,0,0,0.75);
+    box-shadow: -2px 4px 19px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -2px 4px 19px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -2px 4px 19px 0px rgba(0, 0, 0, 0.75);
+    animation: loading 5s ease-in-out;
 
-    &:hover{
+    @keyframes loading {
+        0% {
+            opacity: 0;
+            filter: blur(10px);
+        }
+
+        100% {
+            opacity: 1;
+            filter: blur(0px);
+        }
+    }
+
+    &:hover {
         scale: 1.02;
     }
 
@@ -202,7 +208,7 @@
         padding: 30px 0;
         transition: 0.5s ease-in-out;
         overflow: hidden;
-        &:hover{
+        &:hover {
             transform: translateY(25px);
         }
     }
@@ -243,4 +249,3 @@
     display: flex;
     perspective: 1000px;
 }
-

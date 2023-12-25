@@ -42,7 +42,7 @@ const Card = (props) => {
   return (
     <>
       <div className='CardContainer'>
-        <img className='CardImage' src={props.image} loading='lazy' alt="Error" width="1rem" height="1rem"/>
+        <img className='CardImage' src={props.image} loading='lazy' alt="Error" width="1rem" height="1rem" />
         {props.CardMain ? <p className='CardTitle'>{props.title}</p> : null}
 
       </div>
@@ -53,9 +53,19 @@ const Card = (props) => {
 export const Carousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const [showAnimation, setShowAnimation] = useState(false); 
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setActiveIndex((activeIndex + 1) % CardItems.length);
+  //     setShowAnimation(true)
+  //     setTimeout(() => {
+  //       setShowAnimation(false)
+  //     }, 1000);
+  //   }, 10000);
+  // })
+
+  const [showAnimation, setShowAnimation] = useState(false);
   const defaultClasses = ['LeftCard', 'MainCard', 'RightCard', 'LeftMostCard', 'RightMostCard'];
-  const animationClasses = [showAnimation ? 'LeftCardAnimation' : '', showAnimation ? 'MainCardAnimation' : '', showAnimation ? 'RightCardAnimation' : '', showAnimation ? 'LeftMostCardAnimation' : '',  showAnimation ? 'RightMostCardAnimation' : ''];
+  const animationClasses = [showAnimation ? 'LeftCardAnimation' : '', showAnimation ? 'MainCardAnimation' : '', showAnimation ? 'RightCardAnimation' : '', showAnimation ? 'LeftMostCardAnimation' : '', showAnimation ? 'RightMostCardAnimation' : ''];
 
   const NextSlide = () => {
     let nextIndex = (activeIndex + 1) % CardItems.length;
@@ -86,10 +96,10 @@ export const Carousel = () => {
 
         <div className='Carousel'>
           <div className="slider">
-          <div className={`${defaultClasses[3]}  ${animationClasses[3]}`}>
+            <div className={`${defaultClasses[3]}  ${animationClasses[3]}`} >
               <Card image={CardItems[(activeIndex - 2 + CardItems.length) % CardItems.length].image} title={CardItems[(activeIndex - 1 + CardItems.length) % CardItems.length].title} />
             </div>
-            <div className={`${defaultClasses[0]}  ${animationClasses[0]}`}>
+            <div className={`${defaultClasses[0]}  ${animationClasses[0]}`} >
               <Card image={CardItems[(activeIndex - 1 + CardItems.length) % CardItems.length].image} title={CardItems[(activeIndex - 1 + CardItems.length) % CardItems.length].title} />
             </div>
             <div className={`${defaultClasses[1]} ${animationClasses[1]} `}>
